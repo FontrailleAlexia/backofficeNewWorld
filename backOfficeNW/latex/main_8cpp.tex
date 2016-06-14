@@ -1,0 +1,81 @@
+\hypertarget{main_8cpp}{\section{Référence du fichier /home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/main.cpp}
+\label{main_8cpp}\index{/home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/main.\-cpp@{/home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/main.\-cpp}}
+}
+
+
+main est obligatoire dans tout les programmes c++  
+
+
+{\ttfamily \#include $<$Q\-Application$>$}\\*
+{\ttfamily \#include \char`\"{}mainwindow.\-h\char`\"{}}\\*
+Graphe des dépendances par inclusion de main.\-cpp\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em permet de gérer toutes les fonctionnalités avec main main est obligatoire dans tout les programmes c++ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+main est obligatoire dans tout les programmes c++ \begin{DoxyAuthor}{Auteur}
+A.\-Fontraille 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+4 septembre 2015 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+
+
+Définition dans le fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
+
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{main.\-cpp@{main.\-cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+permet de gérer toutes les fonctionnalités avec main main est obligatoire dans tout les programmes c++ 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+
+
+Définition à la ligne 20 du fichier main.\-cpp.
+
+
+\begin{DoxyCode}
+\{
+    QApplication a(argc, argv);
+    \hyperlink{class_main_window}{MainWindow} w;
+    w.show();
+    
+    \textcolor{keywordflow}{return} a.exec();
+    QTextCodec::setCodecForTr(QTextCodec::codecForName(\textcolor{stringliteral}{"UTF-8"}));
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName(\textcolor{stringliteral}{"UTF-8"}));
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName(\textcolor{stringliteral}{"UTF-8"}));
+    \textcolor{comment}{//modelProduit->setHeaderData(0, Qt::Horizontal, trUtf8("Identifiant"));}
+\}
+\end{DoxyCode}

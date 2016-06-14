@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\connexion.o
+./release\gestion.o
+./release\moderation.o
+./release\moderationarticle.o
+./release\moc_mainwindow.o
+./release\moc_connexion.o
+./release\moc_gestion.o
+./release\moc_moderation.o
+./release\moc_moderationarticle.o
+);

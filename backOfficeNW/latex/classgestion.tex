@@ -1,0 +1,157 @@
+\hypertarget{classgestion}{\section{Référence de la classe gestion}
+\label{classgestion}\index{gestion@{gestion}}
+}
+
+
+Avec la classe gestion on retrouve les slots privés ou public afin de gérer les différents rayons et produits on peut donc supprimer, ajouter ou modifier puis tout simplement les voir on peut également gérer la couleur.  
+
+
+
+
+{\ttfamily \#include $<$gestion.\-h$>$}
+
+
+
+Graphe de collaboration de gestion\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classgestion__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classgestion_a56a870ef0bef1cb98c679a1fa4bb25ff}{gestion} (Q\-Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Si lorsque l'identifiant ou le mdp de la base de données est incorrect alors un msg d'erreur apparait sinon, la connexion a la base se fait bien, et ouvre alors la page connexion. \end{DoxyCompactList}\item 
+\hyperlink{classgestion_a56c8770c7068cf05c9363b632f960838}{$\sim$gestion} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Avec la classe gestion on retrouve les slots privés ou public afin de gérer les différents rayons et produits on peut donc supprimer, ajouter ou modifier puis tout simplement les voir on peut également gérer la couleur. 
+
+Définition à la ligne 32 du fichier gestion.\-h.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classgestion_a56a870ef0bef1cb98c679a1fa4bb25ff}{\index{gestion@{gestion}!gestion@{gestion}}
+\index{gestion@{gestion}!gestion@{gestion}}
+\subsubsection[{gestion}]{\setlength{\rightskip}{0pt plus 5cm}gestion\-::gestion (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{classgestion_a56a870ef0bef1cb98c679a1fa4bb25ff}
+
+
+Si lorsque l'identifiant ou le mdp de la base de données est incorrect alors un msg d'erreur apparait sinon, la connexion a la base se fait bien, et ouvre alors la page connexion. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 26 du fichier gestion.\-cpp.
+
+
+\begin{DoxyCode}
+                                :
+    QDialog(parent),
+    ui(\textcolor{keyword}{new} Ui::gestion)
+\{
+    ui->setupUi(\textcolor{keyword}{this});
+    couleur();
+    QSqlDatabase db=QSqlDatabase::addDatabase(\textcolor{stringliteral}{"QMYSQL"});
+    maBase=\textcolor{keyword}{new} QSqlDatabase(db);
+    maBase->setHostName(\textcolor{stringliteral}{"localhost"});
+    maBase->setDatabaseName(\textcolor{stringliteral}{"testQT"});
+    maBase->setUserName(\textcolor{stringliteral}{"afontraille"});
+    maBase->setPassword(\textcolor{stringliteral}{"dTj124fs"});
+    \textcolor{keywordtype}{bool} ok = maBase->open();
+    \textcolor{keywordflow}{if}(!ok)
+    \{
+        QMessageBox::warning(\textcolor{keyword}{this},\textcolor{stringliteral}{"New World BackOffice"},\textcolor{stringliteral}{"La connexion à la
+       base de données a échoué \(\backslash\)n Veuillez vérifier que le service mysql est lancé sur
+       localhost"},QMessageBox::Ok|QMessageBox::Cancel,QMessageBox::Ok);
+    \}
+    \textcolor{keywordflow}{else}
+    \{
+        modelRayon=\textcolor{keyword}{new} QSqlTableModel(\textcolor{keyword}{this},*maBase);
+        modelRayon->setTable(\textcolor{stringliteral}{"surType"});
+        ui->tableViewRayons->setModel(modelRayon);
+        modelRayon->select();
+        modelRayon->setHeaderData(1,Qt::Horizontal, trUtf8(\textcolor{stringliteral}{"Nom"}));
+        modelRayon->setEditStrategy(QSqlTableModel::OnFieldChange);
+
+        modelProduit=\textcolor{keyword}{new} QSqlRelationalTableModel(\textcolor{keyword}{this},*maBase);
+        modelProduit->setTable(\textcolor{stringliteral}{"type"});
+        ui->tableViewProduits->setModel(modelProduit);
+        modelProduit->setRelation(2, QSqlRelation(\textcolor{stringliteral}{"surType"}, \textcolor{stringliteral}{"no"}, \textcolor{stringliteral}{"
+      libelleSurType"}));
+        modelProduit->select();
+        modelProduit->setHeaderData(1,Qt::Horizontal, trUtf8(\textcolor{stringliteral}{"Nom"}));
+        modelProduit->setHeaderData(2,Qt::Horizontal, trUtf8(\textcolor{stringliteral}{"Nom du rayon"}));
+
+        \textcolor{comment}{//Cacher l'identifiant pour les rayons et les produits}
+        ui->tableViewRayons->hideColumn(0);
+        ui->tableViewProduits->hideColumn(0);
+        modelProduit->setEditStrategy(QSqlRelationalTableModel::OnRowChange);
+
+        \textcolor{comment}{//REMPLIR COMBO BOX AJOUT}
+        QString requete=\textcolor{stringliteral}{"select * from surType;"};
+        \textcolor{comment}{//exécution de la requête}
+        QSqlQuery reqEx(requete);
+        \textcolor{comment}{//compteur de lignes}
+        \textcolor{keywordtype}{int} i=0;
+        \textcolor{comment}{//boucle pour remplir ma comboBox}
+        \textcolor{keywordflow}{while}(reqEx.next())
+        \{
+            ui->comboBox->addItem(reqEx.value(1).toString(), i);
+            i++;
+        \}
+        \textcolor{comment}{//REMPLIR COMBO BOX MODIF}
+        QString req=\textcolor{stringliteral}{"select * from surType;"};
+        \textcolor{comment}{//exécution de la requête}
+        QSqlQuery reqExModif(req);
+        \textcolor{comment}{//compteur de lignes}
+        \textcolor{keywordtype}{int} j=0;
+        \textcolor{comment}{//boucle pour remplir ma comboBox}
+        \textcolor{keywordflow}{while}(reqExModif.next())
+        \{
+            ui->comboBoxModif->addItem(reqExModif.value(1).toString(), j);
+            i++;
+        \}
+        \textcolor{comment}{//Désactiver les boutons}
+        \textcolor{comment}{/*if()}
+\textcolor{comment}{        \{}
+\textcolor{comment}{            ui->pushButtonAddProduit->setEnabled(false);}
+\textcolor{comment}{        \}*/}
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{classgestion_a56c8770c7068cf05c9363b632f960838}{\index{gestion@{gestion}!$\sim$gestion@{$\sim$gestion}}
+\index{$\sim$gestion@{$\sim$gestion}!gestion@{gestion}}
+\subsubsection[{$\sim$gestion}]{\setlength{\rightskip}{0pt plus 5cm}gestion\-::$\sim$gestion (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgestion_a56c8770c7068cf05c9363b632f960838}
+
+
+Définition à la ligne 97 du fichier gestion.\-cpp.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keyword}{delete} ui;
+\}
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+/home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/\hyperlink{gestion_8h}{gestion.\-h}\item 
+/home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/\hyperlink{gestion_8cpp}{gestion.\-cpp}\end{DoxyCompactItemize}

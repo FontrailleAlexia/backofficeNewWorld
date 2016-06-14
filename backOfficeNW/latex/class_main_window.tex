@@ -1,0 +1,91 @@
+\hypertarget{class_main_window}{\section{Référence de la classe Main\-Window}
+\label{class_main_window}\index{Main\-Window@{Main\-Window}}
+}
+
+
+on peut retrouver des slots privés et publics qui permettent de quitter le programme et de se connecter  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\-h$>$}
+
+
+
+Graphe de collaboration de Main\-Window\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{class_main_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\-Window} (Q\-Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\-Window\-::\-Main\-Window}. \end{DoxyCompactList}\item 
+\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\-Main\-Window} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+on peut retrouver des slots privés et publics qui permettent de quitter le programme et de se connecter 
+
+Définition à la ligne 22 du fichier mainwindow.\-h.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{\index{Main\-Window@{Main\-Window}!Main\-Window@{Main\-Window}}
+\index{Main\-Window@{Main\-Window}!MainWindow@{Main\-Window}}
+\subsubsection[{Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}Main\-Window\-::\-Main\-Window (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}
+
+
+\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\-Window\-::\-Main\-Window}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 28 du fichier mainwindow.\-cpp.
+
+
+\begin{DoxyCode}
+                                      :
+    QMainWindow(parent),
+    ui(\textcolor{keyword}{new} Ui::MainWindow)
+\{
+    \textcolor{comment}{//construit un interface}
+    ui->setupUi(\textcolor{keyword}{this});
+\}
+\end{DoxyCode}
+\hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\index{Main\-Window@{Main\-Window}!$\sim$\-Main\-Window@{$\sim$\-Main\-Window}}
+\index{$\sim$\-Main\-Window@{$\sim$\-Main\-Window}!MainWindow@{Main\-Window}}
+\subsubsection[{$\sim$\-Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}Main\-Window\-::$\sim$\-Main\-Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}
+
+
+Définition à la ligne 36 du fichier mainwindow.\-cpp.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keyword}{delete} ui;
+\}
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+/home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/\hyperlink{mainwindow_8h}{mainwindow.\-h}\item 
+/home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/\hyperlink{mainwindow_8cpp}{mainwindow.\-cpp}\end{DoxyCompactItemize}

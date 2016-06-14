@@ -1,0 +1,108 @@
+\hypertarget{classconnexion}{\section{Référence de la classe connexion}
+\label{classconnexion}\index{connexion@{connexion}}
+}
+
+
+avec la classe connexion on retrouve des slots privés et publics ils permettent de valider ou tout simplement de fermer la fenêtre nous pouvons aussi gérer la couleur  
+
+
+
+
+{\ttfamily \#include $<$connexion.\-h$>$}
+
+
+
+Graphe de collaboration de connexion\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classconnexion__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classconnexion_a9764293a65b53a8385b6cc1d2ea14746}{connexion} (Q\-Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em permet de pouvoir se connecter à la base de données Si l'identifiant de la base de données ou le mdp est incorrect Alors il sera impossible de se connecter et un message d'erreur apparaitra \end{DoxyCompactList}\item 
+\hyperlink{classconnexion_a28451b226398ff815107aa8a0fe4c673}{$\sim$connexion} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classconnexion_a28451b226398ff815107aa8a0fe4c673}{connexion\-::$\sim$connexion} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+avec la classe connexion on retrouve des slots privés et publics ils permettent de valider ou tout simplement de fermer la fenêtre nous pouvons aussi gérer la couleur 
+
+Définition à la ligne 27 du fichier connexion.\-h.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classconnexion_a9764293a65b53a8385b6cc1d2ea14746}{\index{connexion@{connexion}!connexion@{connexion}}
+\index{connexion@{connexion}!connexion@{connexion}}
+\subsubsection[{connexion}]{\setlength{\rightskip}{0pt plus 5cm}connexion\-::connexion (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{classconnexion_a9764293a65b53a8385b6cc1d2ea14746}
+
+
+permet de pouvoir se connecter à la base de données Si l'identifiant de la base de données ou le mdp est incorrect Alors il sera impossible de se connecter et un message d'erreur apparaitra 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 26 du fichier connexion.\-cpp.
+
+
+\begin{DoxyCode}
+                                    :
+    QDialog(parent),
+    ui(\textcolor{keyword}{new} Ui::connexion)
+\{
+    ui->setupUi(\textcolor{keyword}{this});
+    couleur();
+    QSqlDatabase db=QSqlDatabase::addDatabase(\textcolor{stringliteral}{"QMYSQL"});
+    maBase=\textcolor{keyword}{new} QSqlDatabase(db);
+    maBase->setHostName(\textcolor{stringliteral}{"localhost"});
+    maBase->setDatabaseName(\textcolor{stringliteral}{"testQT"});
+    maBase->setUserName(\textcolor{stringliteral}{"afontraille"});
+    maBase->setPassword(\textcolor{stringliteral}{"dTj124fs"});
+    \textcolor{keywordtype}{bool} ok = maBase->open();
+    \textcolor{keywordflow}{if}(!ok)
+    \{
+        QMessageBox::warning(\textcolor{keyword}{this},\textcolor{stringliteral}{"New World BackOffice"},\textcolor{stringliteral}{"La connexion à la
+       base de données a échoué\(\backslash\)nVeuillez vérifier que le service mysql est lancé sur
+       localhost"},QMessageBox::Ok|QMessageBox::Cancel,QMessageBox::Ok);
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{classconnexion_a28451b226398ff815107aa8a0fe4c673}{\index{connexion@{connexion}!$\sim$connexion@{$\sim$connexion}}
+\index{$\sim$connexion@{$\sim$connexion}!connexion@{connexion}}
+\subsubsection[{$\sim$connexion}]{\setlength{\rightskip}{0pt plus 5cm}connexion\-::$\sim$connexion (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classconnexion_a28451b226398ff815107aa8a0fe4c673}
+
+
+\hyperlink{classconnexion_a28451b226398ff815107aa8a0fe4c673}{connexion\-::$\sim$connexion} 
+
+
+
+Définition à la ligne 48 du fichier connexion.\-cpp.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keyword}{delete} ui;
+\}
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+/home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/\hyperlink{connexion_8h}{connexion.\-h}\item 
+/home/afontraille/\-Q\-T C\-R\-E\-A\-T\-O\-R/back\-Office\-N\-W/\hyperlink{connexion_8cpp}{connexion.\-cpp}\end{DoxyCompactItemize}
