@@ -43,6 +43,7 @@ private slots:
 private:
     Ui::connexion *ui;
      QSqlDatabase * maBase;
+//static QString Utils::toMd5(QString text);
 };
 
 #endif // CONNEXION_H

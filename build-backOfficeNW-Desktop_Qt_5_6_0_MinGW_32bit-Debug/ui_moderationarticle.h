@@ -13,11 +13,11 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -32,15 +32,15 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QTableView *tableView;
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
+    QLabel *label_2;
+    QComboBox *comboBoxCheck;
     QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_2;
 
     void setupUi(QDialog *moderationArticle)
     {
         if (moderationArticle->objectName().isEmpty())
             moderationArticle->setObjectName(QStringLiteral("moderationArticle"));
-        moderationArticle->resize(283, 301);
+        moderationArticle->resize(1238, 587);
         verticalLayout = new QVBoxLayout(moderationArticle);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(moderationArticle);
@@ -65,25 +65,28 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        pushButton = new QPushButton(moderationArticle);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        label_2 = new QLabel(moderationArticle);
+        label_2->setObjectName(QStringLiteral("label_2"));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(label_2);
 
-        horizontalSpacer = new QSpacerItem(68, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        comboBoxCheck = new QComboBox(moderationArticle);
+        comboBoxCheck->setObjectName(QStringLiteral("comboBoxCheck"));
+
+        horizontalLayout->addWidget(comboBoxCheck);
+
+        horizontalSpacer = new QSpacerItem(3, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
-
-        pushButton_2 = new QPushButton(moderationArticle);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        horizontalLayout->addWidget(pushButton_2);
 
 
         verticalLayout->addLayout(horizontalLayout);
 
 
         retranslateUi(moderationArticle);
+
+        comboBoxCheck->setCurrentIndex(-1);
+
 
         QMetaObject::connectSlotsByName(moderationArticle);
     } // setupUi
@@ -92,8 +95,7 @@ public:
     {
         moderationArticle->setWindowTitle(QApplication::translate("moderationArticle", "Mod\303\251ration", 0));
         label->setText(QApplication::translate("moderationArticle", "Bienvenue admin", 0));
-        pushButton->setText(QApplication::translate("moderationArticle", "&Valider", 0));
-        pushButton_2->setText(QApplication::translate("moderationArticle", "&Supprimer", 0));
+        label_2->setText(QApplication::translate("moderationArticle", "Choix", 0));
     } // retranslateUi
 
 };

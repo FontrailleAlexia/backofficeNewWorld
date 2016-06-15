@@ -37,9 +37,7 @@ public:
     QVBoxLayout *verticalLayout_5;
     QLabel *label_2;
     QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer_6;
     QTableView *tableViewRayons;
-    QSpacerItem *horizontalSpacer_5;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_10;
     QSpacerItem *horizontalSpacer_15;
@@ -61,10 +59,8 @@ public:
     QLabel *label;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
-    QSpacerItem *horizontalSpacer_4;
     QTableView *tableViewProduits;
     QVBoxLayout *verticalLayout_3;
-    QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_9;
     QSpacerItem *horizontalSpacer;
@@ -188,18 +184,10 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_6);
-
         tableViewRayons = new QTableView(tab);
         tableViewRayons->setObjectName(QStringLiteral("tableViewRayons"));
 
         horizontalLayout_3->addWidget(tableViewRayons);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_5);
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
@@ -297,10 +285,6 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        verticalLayout_2->addItem(horizontalSpacer_4);
-
 
         horizontalLayout->addLayout(verticalLayout_2);
 
@@ -311,10 +295,6 @@ public:
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        verticalLayout_3->addItem(horizontalSpacer_2);
-
 
         horizontalLayout->addLayout(verticalLayout_3);
 
@@ -461,7 +441,7 @@ public:
 
         retranslateUi(gestion);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(gestion);
