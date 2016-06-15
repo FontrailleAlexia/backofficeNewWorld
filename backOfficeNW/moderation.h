@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QSqlDatabase>
+#include "utils.h"
 
 namespace Ui {
 class Moderation;
@@ -21,12 +22,9 @@ private slots:
 
     void on_pushButtonFermer_clicked();
 
-
 private:
     Ui::Moderation *ui;
-     QSqlDatabase * maBase;
-     QString toMd5(QString text);
-
+    QSqlDatabase * maBase;
 };
 
 #endif // MODERATION_H

@@ -13,6 +13,7 @@
 #include <QSqlDatabase>
 #include <QSqlTableModel>
 #include <QCryptographicHash>
+#include "utils.h"
 
 /**
  *  @namespace Ui
@@ -40,7 +41,6 @@ private slots:
     void on_pushButton_clicked();
 
 private:
-    QString toMd5(QString text);
     Ui::connexion *ui;
      QSqlDatabase * maBase;
 };

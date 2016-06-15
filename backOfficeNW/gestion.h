@@ -14,6 +14,7 @@
 #include <QSqlTableModel>
 #include <QSqlRelationalTableModel>
 
+
 /**
  *  @namespace Ui
  *  @class gestion
@@ -42,12 +43,10 @@ private:
     QSqlDatabase * maBase;
     QSqlTableModel * modelRayon;
     QSqlRelationalTableModel * modelProduit;
-    int getUniqueIdProduit();
 
 private slots:
     void on_pushButtonAddRayons_clicked();
     void on_pushButton_clicked();
-    void on_tableViewProduits_activated(const QModelIndex &index);
     void on_pushButtonSupprimerRayons_clicked();
     void on_pushButtonSupprimerProduits_clicked();
     void on_pushButtonModifierProd_clicked();

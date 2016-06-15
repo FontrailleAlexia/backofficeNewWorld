@@ -72,7 +72,7 @@ void connexion::on_pushButtonValider_clicked()
 {
     QString identifiant=ui->lineEdit_identifiant->text();
 
-    QString mdp = this->toMd5(ui->lineEdit_mdp->text());
+    QString mdp = Utils::toMd5(ui->lineEdit_mdp->text());
     QString texteReq="select count(*) from users where nickname='"+identifiant+"' and password='"+mdp+"'";
     qDebug()<<texteReq;
     QSqlQuery login(texteReq);
@@ -97,8 +97,4 @@ void connexion::on_pushButton_clicked()
 {
     Moderation *fenetre = new Moderation();
     fenetre->show();
-}
-
-QString connexion::toMd5(QString text){
-    return QString("%1").arg(QString(QCryptographicHash::hash(text.toUtf8(),QCryptographicHash::Md5).toHex()));
 }

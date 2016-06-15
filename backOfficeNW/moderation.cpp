@@ -4,8 +4,6 @@
 #include <QMessageBox>
 #include "moderationarticle.h"
 #include <QSqlQuery>
-#include <QDebug>
-#include <QCryptographicHash>
 
 Moderation::Moderation(QWidget *parent) :
     QDialog(parent),
@@ -32,17 +30,15 @@ Moderation::~Moderation()
 
 void Moderation::on_pushButton_clicked()
 {
-    QString identifiant=ui->lineEdit_identifiant->text();
-    QString mdp = this->toMd5(ui->lineEdit_mdp->text());
-    QString texteReq="select count(*) from users where nickname='"+identifiant+"' and password='"+mdp+"'";
-    qDebug() << "select count(*) from users where admin=1 and nickname='"+identifiant+"' and password='"+mdp+"'";
+    QString identifiant = ui->lineEdit_identifiant->text();
+    QString mdp = Utils::toMd5(ui->lineEdit_mdp->text());
+    QString texteReq = "SELECT COUNT(*) FROM users WHERE nickname='" + identifiant + "' AND password='" + mdp + "'";
 
     QSqlQuery login(texteReq);
-
     login.first();
-    int req=login.value(0).toInt();
+    int req = login.value(0).toInt();
 
-    if(req==0)
+    if(req == 0)
     {
         ui->label_statut->setText("Identifiant ou mot de passe incorrect.");
     }
@@ -58,8 +54,4 @@ void Moderation::on_pushButton_clicked()
 void Moderation::on_pushButtonFermer_clicked()
 {
     close();
-}
-
-QString Moderation::toMd5(QString text){
-    return QString("%1").arg(QString(QCryptographicHash::hash(text.toUtf8(),QCryptographicHash::Md5).toHex()));
 }

@@ -19,13 +19,15 @@ SOURCES += main.cpp\
     connexion.cpp \
     gestion.cpp \
     moderation.cpp \
-    moderationarticle.cpp
+    moderationarticle.cpp \
+    utils.cpp
 
 HEADERS  += mainwindow.h \
     connexion.h \
     gestion.h \
     moderation.h \
-    moderationarticle.h
+    moderationarticle.h \
+    utils.h
 
 FORMS    += mainwindow.ui \
     connexion.ui \
